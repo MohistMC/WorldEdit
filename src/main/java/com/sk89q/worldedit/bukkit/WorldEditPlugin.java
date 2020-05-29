@@ -70,6 +70,7 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 
 import static com.google.common.base.Preconditions.checkNotNull;
+import red.mohist.worldeditfix.WorldEditFix;
 
 /**
  * Plugin for Bukkit.
@@ -122,6 +123,7 @@ public class WorldEditPlugin extends JavaPlugin implements TabCompleter {
 
         // Check Java version
         Java7Detector.notifyIfNot8();
+        WorldEditFix.init();
     }
 
     private void loadConfig() {

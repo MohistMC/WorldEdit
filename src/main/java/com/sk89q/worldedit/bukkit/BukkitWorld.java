@@ -331,7 +331,7 @@ public class BukkitWorld extends LocalWorld {
     @SuppressWarnings("deprecation")
     @Override
     public boolean isValidBlockType(int type) {
-        return Material.getMaterial(type) != null && Material.getMaterial(type).isBlock();
+        return Material.getBlockMaterial(type) != null && Material.getBlockMaterial(type).isBlock();
     }
 
     @Override

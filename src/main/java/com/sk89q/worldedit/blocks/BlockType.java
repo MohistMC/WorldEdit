@@ -296,11 +296,11 @@ public enum BlockType {
     /**
      * Stores a map of the IDs for fast access.
      */
-    private static final Map<Integer, BlockType> ids = new HashMap<Integer, BlockType>();
+    public static final Map<Integer, BlockType> ids = new HashMap<Integer, BlockType>();
     /**
      * Stores a map of the names for fast access.
      */
-    private static final Map<String, BlockType> lookup = new HashMap<String, BlockType>();
+    public static final Map<String, BlockType> lookup = new HashMap<String, BlockType>();
 
     private final int id;
     private final String name;
