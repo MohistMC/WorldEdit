@@ -35,6 +35,7 @@ shadowJar {
         include(dependency('com.sk89q:jchronic:0.2.4a'))
         include(dependency('com.thoughtworks.paranamer:paranamer:2.6'))
         include(dependency('com.sk89q.lib:jlibnoise:1.0.0'))
+        include(dependency('com.google.code.gson:gson:2.2.4'))
         exclude 'mohist_srg.jar'
     }
 }
