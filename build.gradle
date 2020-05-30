@@ -38,4 +38,6 @@ shadowJar {
         include(dependency('com.google.code.gson:gson:2.2.4'))
         exclude 'mohist_srg.jar'
     }
+
+    relocate('com.google.gson', 'com.sk89q.worldedit.internal.gson')
 }
