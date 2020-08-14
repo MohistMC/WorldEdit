@@ -16,14 +16,14 @@ public class WorldEditFix {
     public static boolean debug = false;
 
     public static void init() {
-        Map<String, Material> BLOCK_BY_NAME = ObfuscationReflectionHelper.getPrivateValue(Material.class, null, "BLOCK_BY_NAME");
-        for (Map.Entry<String, Material> map : BLOCK_BY_NAME.entrySet()) {
-            String name = map.getKey();
-            Material material = map.getValue();
-            int newid = material.getId();
-            BlockType bt = EnumHelper.addEnum(BlockType.class, name, new Class[] { Integer.TYPE, String.class, String.class }, newid, name, name.toLowerCase());
-            BlockType.ids.put(newid, bt);
-            BlockType.lookup.put(name.toLowerCase(), bt);
+        for (Material material : Material.values()) {
+            if (material.isForgeBlock()) {
+                String name = material.name();
+                int newid = material.getId();
+                BlockType bt = EnumHelper.addEnum(BlockType.class, name, new Class[] { Integer.TYPE, String.class, String.class }, newid, name, name.toLowerCase());
+                BlockType.ids.put(newid, bt);
+                BlockType.lookup.put(name.toLowerCase(), bt);
+            }
         }
         if (debug) {
             for (BlockType blockType : BlockType.values()) {
@@ -31,5 +31,4 @@ public class WorldEditFix {
             }
         }
     }
-
 }
