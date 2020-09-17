@@ -1,6 +1,6 @@
 name: WorldEdit
 main: com.sk89q.worldedit.bukkit.WorldEditPlugin
-version: "6.1.9-0.2-SNAPSHOT"
+version: "6.1.9-0.3-SNAPSHOT"
 softdepend: [Spout] #hack to fix trove errors
 
 # Permissions aren't here. Read http://wiki.sk89q.com/wiki/WEPIF/DinnerPerms

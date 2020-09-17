@@ -70,7 +70,7 @@ import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-import red.mohist.worldeditfix.WorldEditFix;
+import com.mohistmc.worldeditfix.WorldEditFix;
 
 /**
  * Plugin for Bukkit.

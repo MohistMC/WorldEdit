@@ -1,4 +1,4 @@
-package red.mohist.worldeditfix;
+package com.mohistmc.worldeditfix;
 
 import com.sk89q.worldedit.blocks.BlockType;
 import java.util.Map;

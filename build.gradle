@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'com.sk89q.worldedit'
-version '6.1.9-0.2.1-SNAPSHOT'
+version '6.1.9-0.3-SNAPSHOT'
 
 repositories {
     mavenCentral()
@@ -26,7 +26,7 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.sk89q.lib:jlibnoise:1.0.0'
     compile 'com.sk89q:dummypermscompat:1.8'
-    compile files('libs/mohist_srg.jar')
+    compile files('libs/mohist-1.12.2-27-server.jar')
     testCompile 'org.mockito:mockito-core:1.9.0-rc1'
 }
 
