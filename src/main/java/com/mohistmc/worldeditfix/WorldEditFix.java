@@ -1,9 +1,7 @@
 package com.mohistmc.worldeditfix;
 
 import com.sk89q.worldedit.blocks.BlockType;
-import java.util.Map;
 import net.minecraftforge.common.util.EnumHelper;
-import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 
