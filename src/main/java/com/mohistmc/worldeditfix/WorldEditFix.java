@@ -17,7 +17,7 @@ public class WorldEditFix {
         for (Material material : Material.values()) {
             if (material.isForgeBlock()) {
                 String name = material.name();
-                int newid = material.getId();
+                Integer newid = material.getBlockID();
                 BlockType bt = EnumHelper.addEnum(BlockType.class, name, new Class[] { Integer.TYPE, String.class, String.class }, newid, name, name.toLowerCase());
                 BlockType.ids.put(newid, bt);
                 BlockType.lookup.put(name.toLowerCase(), bt);

@@ -9,7 +9,7 @@ version '6.1.9-0.3-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "https://raw.githubusercontent.com/Mohist-Community/Mohist-Maven/master/maven" }
+    maven { url "https://github.com/mohist-community/maven/raw/master" }
     maven { url "http://repo.bukkit.org/content/groups/public" }
     maven { url "http://maven.sk89q.com/repo/" }
     maven { url "http://repo.maven.apache.org/maven2" }
