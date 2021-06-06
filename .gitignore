@@ -1,26 +1,23 @@
-# various other potential build files
-/build
-/.gradle
-/.vscode
-/classes
-/out
-/logs
-/libs
-
-# Mac filesystem dust
-.DS_Store
-
-# intellij
+.classpath
+.project
+.settings
+eclipse
+.idea
 *.iml
 *.ipr
 *.iws
-.idea/
 
-# patch
-*.rej
+bin
+build
+target
+.gradle
+forge-download
+out
+run
 
-#eclipse
-**/bin
-**/.settings
-**/.classpath
-*.project
+/dependency-reduced-pom.xml
+*-private.sh
+
+# i18n
+worldedit-core/src/main/resources/lang/*
+!worldedit-core/src/main/resources/lang/strings.json
