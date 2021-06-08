@@ -16,11 +16,19 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Setup permission to execute gradle
+      run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build -s
+      run: ./gradlew worldedit-bukkit:build -s
     - uses: actions/upload-artifact@v2
       name: Archive Reports
       if: always()
       with:
         name: reports for ${{ matrix.os }}
         path: '**/build/reports/**'
+    - uses: actions/upload-artifact@v2
+      name: Upload bukkit jar
+      if: always()
+      with:
+        name: Worldedit build with ${{ matrix.os }}
+        path: '**/build/libs/**'
