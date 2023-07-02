@@ -9,9 +9,10 @@ version '6.1.9-0.3-SNAPSHOT'
 repositories {
     mavenLocal()
     mavenCentral()
+    maven { url "https://repo.minebench.de/" }
+    maven { url "https://nexus.velocitypowered.com/repository/maven-public/" }
     maven { url "https://github.com/mohist-community/maven/raw/master" }
     maven { url "http://repo.bukkit.org/content/groups/public" }
-    maven { url "http://maven.sk89q.com/repo/" }
     maven { url "http://repo.maven.apache.org/maven2" }
 }
 
@@ -37,6 +38,4 @@ shadowJar {
         include(dependency('com.sk89q.lib:jlibnoise:1.0.0'))
         include(dependency('com.google.code.gson:gson:2.2.4'))
     }
-
-    relocate('com.google.gson', 'com.sk89q.worldedit.internal.gson')
 }

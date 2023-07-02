@@ -63,7 +63,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
      * reasons), which coincides with the number of possible IDs that official
      * Minecraft supports as of version 1.7.
      */
-    public static final int MAX_ID = 4095;
+    public static final int MAX_ID = Integer.MAX_VALUE;
 
     /**
      * Indicates the maximum data value (inclusive) that can be used. A future
@@ -93,7 +93,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
     /**
      * Construct a block with the given ID and data value.
      *
-     * @param id ID value
+     * @param id   ID value
      * @param data data value
      * @see #setId(int)
      * @see #setData(int)
@@ -106,8 +106,8 @@ public class BaseBlock extends Block implements TileEntityBlock {
     /**
      * Construct a block with the given ID, data value and NBT data structure.
      *
-     * @param id ID value
-     * @param data data value
+     * @param id      ID value
+     * @param data    data value
      * @param nbtData NBT data, which may be null
      */
     public BaseBlock(int id, int data, @Nullable CompoundTag nbtData) {
@@ -126,6 +126,14 @@ public class BaseBlock extends Block implements TileEntityBlock {
     }
 
     /**
+     * @deprecated Use {@link Blocks#containsFuzzy(Collection, BaseBlock)}
+     */
+    @Deprecated
+    public static boolean containsFuzzy(Collection<BaseBlock> collection, BaseBlock o) {
+        return Blocks.containsFuzzy(collection, o);
+    }
+
+    /**
      * Get the ID of the block.
      *
      * @return ID (between 0 and {@link #MAX_ID})
@@ -133,6 +141,16 @@ public class BaseBlock extends Block implements TileEntityBlock {
     @Override
     public int getId() {
         return id;
+    }
+
+    /**
+     * Set the block ID.
+     *
+     * @param id block id (between 0 and {@link #MAX_ID}).
+     */
+    @Override
+    public void setId(int id) {
+        internalSetId(id);
     }
 
     /**
@@ -154,16 +172,6 @@ public class BaseBlock extends Block implements TileEntityBlock {
     }
 
     /**
-     * Set the block ID.
-     *
-     * @param id block id (between 0 and {@link #MAX_ID}).
-     */
-    @Override
-    public void setId(int id) {
-        internalSetId(id);
-    }
-
-    /**
      * Get the block's data value.
      *
      * @return data value (0-15)
@@ -171,6 +179,16 @@ public class BaseBlock extends Block implements TileEntityBlock {
     @Override
     public int getData() {
         return data;
+    }
+
+    /**
+     * Set the block's data value.
+     *
+     * @param data block data value (between 0 and {@link #MAX_DATA}).
+     */
+    @Override
+    public void setData(int data) {
+        internalSetData(data);
     }
 
     /**
@@ -193,19 +211,9 @@ public class BaseBlock extends Block implements TileEntityBlock {
     }
 
     /**
-     * Set the block's data value.
-     *
-     * @param data block data value (between 0 and {@link #MAX_DATA}).
-     */
-    @Override
-    public void setData(int data) {
-        internalSetData(data);
-    }
-
-    /**
      * Set both the block's ID and data value.
      *
-     * @param id ID value
+     * @param id   ID value
      * @param data data value
      * @see #setId(int)
      * @see #setData(int)
@@ -239,7 +247,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
             return "";
         }
         Tag idTag = nbtData.getValue().get("id");
-        if (idTag != null && idTag instanceof StringTag) {
+        if (idTag instanceof StringTag) {
             return ((StringTag) idTag).getValue();
         } else {
             return "";
@@ -259,7 +267,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Get the type of block.
-     * 
+     *
      * @return the type
      */
     public int getType() {
@@ -268,7 +276,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Set the type of block.
-     * 
+     *
      * @param type the type to set
      */
     public void setType(int type) {
@@ -299,7 +307,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Rotate this block -90 degrees.
-     * 
+     *
      * @return new data value
      * @deprecated Use {@link BlockData#rotate90Reverse(int, int)}
      */
@@ -326,7 +334,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Flip this block.
-     * 
+     *
      * @return this block
      * @deprecated Use {@link BlockData#flip(int, int)}
      */
@@ -338,7 +346,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Flip this block.
-     * 
+     *
      * @param direction direction to flip in
      * @return this block
      * @deprecated Use {@link BlockData#flip(int, int, FlipDirection)}
@@ -366,7 +374,7 @@ public class BaseBlock extends Block implements TileEntityBlock {
 
     /**
      * Checks if the type is the same, and if data is the same if only data != -1.
-     * 
+     *
      * @param o other block
      * @return true if equal
      */
@@ -385,14 +393,6 @@ public class BaseBlock extends Block implements TileEntityBlock {
             }
         }
         return false;
-    }
-
-    /**
-     * @deprecated Use {@link Blocks#containsFuzzy(Collection, BaseBlock)}
-     */
-    @Deprecated
-    public static boolean containsFuzzy(Collection<BaseBlock> collection, BaseBlock o) {
-        return Blocks.containsFuzzy(collection, o);
     }
 
     @Override
